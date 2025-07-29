@@ -23,7 +23,7 @@ class ResultsPage extends StatelessWidget {
     required this.showBreakStreakWarning,
   }) : super(key: key);
 
-  // Indian number formatting function
+  
   String formatIndianNumber(int number) {
     String numStr = number.toString();
     if (numStr.length <= 3) {
@@ -33,11 +33,11 @@ class ResultsPage extends StatelessWidget {
     String result = '';
     int length = numStr.length;
 
-    // Handle the last 3 digits
+    
     result = numStr.substring(length - 3);
     int remaining = length - 3;
 
-    // Add commas for every 2 digits from right to left (Indian system)
+    
     while (remaining > 0) {
       int start = remaining >= 2 ? remaining - 2 : 0;
       result = numStr.substring(start, remaining) + ',' + result;
@@ -47,12 +47,12 @@ class ResultsPage extends StatelessWidget {
     return result;
   }
 
-  // Universal number formatting function
+
   String formatNumberByLocale(int number, String currency) {
     if (currency == 'INR') {
       return formatIndianNumber(number);
     } else {
-      // Use existing formatter for USD (international format)
+      
       return formatNumber(number, currency);
     }
   }

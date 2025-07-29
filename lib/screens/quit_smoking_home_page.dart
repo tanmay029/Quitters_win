@@ -139,7 +139,7 @@ class _QuitSmokingHomePageState extends State<QuitSmokingHomePage> {
         body: PageView(
           controller: _pageController,
           physics:
-              const NeverScrollableScrollPhysics(), // Disable swipe navigation
+              const NeverScrollableScrollPhysics(),
           allowImplicitScrolling: false,
           onPageChanged: (index) {
             setState(() {});
@@ -154,7 +154,7 @@ class _QuitSmokingHomePageState extends State<QuitSmokingHomePage> {
                   ),
               onReturningUser:
                   () => _pageController.animateToPage(
-                    2, // Navigate to ResultsPage
+                    2, 
                     duration: Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
                   ),
@@ -207,21 +207,14 @@ class _QuitSmokingHomePageState extends State<QuitSmokingHomePage> {
                   );
                 },
                 onRecalculate: () {
-                  print(
-                    'Recalculate button pressed in home page',
-                  ); // Debug print
-                  // Navigate back to form page to allow user to modify values and recalculate
+                  
+                  
                   _pageController
                       .animateToPage(
                         1,
                         duration: Duration(milliseconds: 300),
                         curve: Curves.easeInOut,
-                      )
-                      .then((_) {
-                        print(
-                          'Navigation to form page completed',
-                        ); // Debug print
-                      });
+                      );
                 },
                 showBreakStreakWarning: _showBreakStreakWarning,
               ),
